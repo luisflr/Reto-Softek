@@ -1,4 +1,4 @@
-![Frontend-Challenge](https://github.com/luisflr/Reto-Softek/assets/37960514/4d5ebea0-d824-4f30-8719-10e4edff76d3)# FRONTEND CHALLENGE (RETO-SOFTEK)
+# FRONTEND CHALLENGE (RETO-SOFTEK)
 
 Este reto consiste en crear 3 vistas de diseño responsivo, teniendo en cuenta los siguientes puntos.
 
