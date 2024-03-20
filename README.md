@@ -15,21 +15,19 @@ Este reto consiste en crear 3 vistas de diseño responsivo, teniendo en cuenta l
 
 Consideraremos tu avance y complementaremos con preguntas técnicas sobre los puntos que no hayas alcanzado a resolver.
 
+- Pruebas unitarias
+- **Manejo de estados**
+- Consumo de APIs
+- **Manejo de estilos**
+- Validación de formularios
+- Estructura de carpetas
+- HTML semántico
+- Manejo de Git y Github
+- **Clean code**
+- **Performance**
+- **React**
+- **Diseño responsive**
 
-
-● Pruebas unitarias
-● <font color='red'>Manejo de estados</font>
-● Consumo de APIs
-● <font color='red'>Manejo de estilos</font>
-● Validación de formularios
-● Estructura de carpetas
-● HTML semántico
-● Manejo de Git y Github
-● <font color='red'>Clean code</font>
-● <font color='red'>Performance</font>
-● <font color='red'>React</font>
-● <font color='red'>Diseño responsive</font>
-
-Valoramos más los puntos señalados en rojo
+Valoramos más los puntos remarcados
 
 ![Frontend-Challenge](https://github.com/luisflr/Reto-Softek/assets/37960514/d9f4d103-aeaa-4213-8782-2f234b331757)
