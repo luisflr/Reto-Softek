@@ -1,0 +1,67 @@
+.header {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 11;
+  &__logo {
+    .logo-icon {
+      path {
+        fill: var(--red-rimac-logo);
+      }
+    }
+  }
+  nav {
+    height: 67px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .text-header {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+      &__button {
+        background-color: transparent;
+        border: none;
+        font-family: var(--brsonoma-medium);
+        font-size: 12px;
+        line-height: 16px;
+      }
+      &__button:hover {
+        text-decoration-line: underline;
+        cursor: pointer;
+        transition-property: transform;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 500ms;
+      }
+
+      &__contact {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 0.3rem;
+        .phone-icon {
+          overflow: visible;
+          box-sizing: content-box;
+          font-size: 25px;
+          display: inline-block;
+          height: 1em;
+          overflow: visible;
+          vertical-align: -0.125em;
+          path {
+            fill: #03050F;
+          }
+        }
+        .phone-number {
+          font-family: var(--brsonoma-bold);
+          letter-spacing: .4px;
+        }
+      }
+      &__contact:hover {
+        text-decoration-line: underline;
+        cursor: pointer;
+      }
+    }
+  }
+}

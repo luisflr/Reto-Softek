@@ -1,0 +1,35 @@
+@font-face {
+  font-family: brsonoma-medium;
+  src: url('/src/assets/fonts/BRSonoma-Medium-BF654c45266edd1.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: brsonoma-bold;
+  src: url('/src/assets/fonts/BRSonoma-Bold-BF654c4526823f5.otf');
+  font-weight: bold;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: brsonoma-regular;
+  src: url('/src/assets/fonts/BRSonoma-Regular-BF654c45266c042.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  /*colors*/
+  --gray10: #F8F9FF;
+  --gray1: #03050F;
+  --red-rimac-logo: #F7052D;
+
+  /*fonts*/
+  --brsonoma-medium: brsonoma-medium;
+  --brsonoma-bold: brsonoma-bold;
+  --brsonoma-regular: brsonoma-regular;
+
+  /*sizes*/
+  --max-width: 1184px;
+};
