@@ -11,6 +11,12 @@
   @include laptop {
     padding: 5rem 0 4rem 0;
   }
+  @include tablet {
+    padding: 3rem 0 4rem 0;
+  }
+  @include mobile {
+    padding: 5rem 0 4rem 0;
+  }
   .container {
     display: flex;
     align-items: center;
@@ -23,6 +29,9 @@
         max-width: 100%;
         height: auto;
       }
+      @include tablet {
+        display: none;
+      }
     }
     .text-container {
       margin-left: 128px;
@@ -33,25 +42,68 @@
       @include smallLaptop {
         margin-left: 80px;
       }
-      .tag-seguro {
-        display: inline-block;
-        padding: 4px 8px;
-        border-radius: 4px;
-        font-family: var(--brsonoma-bold);
-        font-size: 14px;
-        line-height: 16px;
-        letter-spacing: .4px;
-        background: linear-gradient(90deg, #00F4E2 0%, #00FF7F 100%);
-        color: var(--gray1);
-        width: fit-content;
-        margin-bottom: 16px;
+      @include tablet {
+        max-width: 100%;
+        margin-left: 0;
       }
-      .title-seguro {
-        font-family: var(--brsonoma-bold);
-        line-height: 40px;
-        font-size: 32px;
-        color: var(--gray1);
-        margin: 0;
+      .form-header{ 
+        display: block;
+        @include tablet {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .tag-seguro {
+          display: inline-block;
+          padding: 4px 8px;
+          border-radius: 4px;
+          font-family: var(--brsonoma-bold);
+          font-size: 14px;
+          line-height: 16px;
+          letter-spacing: .4px;
+          background: linear-gradient(90deg, #00F4E2 0%, #00FF7F 100%);
+          color: var(--gray1);
+          width: fit-content;
+          margin-bottom: 16px;
+          @include tablet {
+            font-size: 12px;
+            margin-bottom: 8px;
+            padding: 2px 8px;
+          }
+        }
+        .title-seguro {
+          font-family: var(--brsonoma-bold);
+          line-height: 40px;
+          font-size: 32px;
+          color: var(--gray1);
+          margin: 0;
+          @include tablet {
+            font-size: 28px;
+          }
+        }
+        .image-tablet {
+          display: none;
+          @include tablet {
+            display: block;
+            width: 136px;
+            min-width: 136px;
+            border-radius: 20px;
+            overflow: hidden;
+            img {
+              max-width: 100%;
+              height: auto;
+            }
+          }
+        }
+      }
+      hr {
+        display: none;
+        @include tablet {
+          display: block;
+          width: 100%;
+          border: 1px solid var(--gray30);
+          margin: 24px 0 24px 0;
+        }
       }
       .description-seguro {
         font-family: var(--brsonoma-medium);
@@ -80,6 +132,11 @@
           font-weight: 700;
           text-decoration: underline;
         }
+        .button-login {
+          @include tablet {
+            width: 100% !important;
+          }
+        }
       }
     }
   }
@@ -87,14 +144,35 @@
     position: absolute;
     bottom: 0;
     left: 0;
+    @include tablet {
+      display: none;
+    }
   }
   .green-blur {
     position: absolute;
     top: 0;
     right: 0;
+    @include tablet {
+      display: none;
+    }
   }
-}
 
-@media screen {
-  
+  .green-blur-tablet {
+    display: none;
+    @include tablet {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+  .purple-blur-tablet {
+    display: none;
+    @include tablet {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
 }

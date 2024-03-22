@@ -4,7 +4,6 @@
   }
 }
 
-
 @mixin laptop() {
   @media screen and (max-width: 1680px) {
       @content
@@ -18,12 +17,13 @@
 }
 
 @mixin tablet(){
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 768px) {
     @content
   }
 }
-@mixin mobile() {
-  @media screen and (max-width: 520px) {
-      @content
+
+@mixin mobile(){
+  @media screen and (max-width: 400px) {
+    @content
   }
 }

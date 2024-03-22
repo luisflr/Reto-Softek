@@ -1,4 +1,4 @@
-import { InputSelectInterface } from "../Interfaces"
+import { InputSelectInterface } from "../ComponentInterfaces"
 
 import ArrowDown from "../../assets/icons/ArrowDown"
 

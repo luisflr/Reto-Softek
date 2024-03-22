@@ -1,4 +1,4 @@
-import { CheckBoxInterface } from "../Interfaces"
+import { CheckBoxInterface } from "../ComponentInterfaces"
 
 import './checkbox.scss';
 

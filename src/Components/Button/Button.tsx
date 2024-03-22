@@ -1,4 +1,4 @@
-import { ButtonInterface } from "../Interfaces"
+import { ButtonInterface } from "../ComponentInterfaces"
 
 import "./button.scss"
 const Button = ({textButton, type, wrapperClassName= '' }: ButtonInterface) => {

@@ -1,4 +1,4 @@
-import { UnerlineButtonInterface } from "../Interfaces";
+import { UnerlineButtonInterface } from "../ComponentInterfaces";
 
 import "./underline-button.scss"
 

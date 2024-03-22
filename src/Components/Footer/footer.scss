@@ -1,27 +1,59 @@
+@import '../../scss/variables/mixins';
+
 .footer {
   margin-top: auto;
   width: 100%;
   height: 106px;
   background-color: var(--gray1);
   z-index: 10;
+  @include tablet {
+    padding: 32px 0 32px 0;
+  }
   &__left {
     .logo-icon {
       width: 85px;
       path {
         fill: var(--gray10);
       }
+      @include tablet {
+        display: none;
+      }
     }
+    .logo-mobile {
+      path {
+        fill: var(--white);
+      }
+      @include tablet {
+        display: block;
+        width: 138px;
+        height: 20px;
+        path {
+          fill: var(--white);
+        }
+      }
+    }
+  }
+  &__right {
+    color: var(--gray10);
+    font-family: var(--brsonoma-regular);
+    font-size: 14px;
+    line-height: 18px;
   }
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    .footer__right {
-      color: var(--gray10);
-      font-family: var(--brsonoma-regular);
-      font-size: 14px;
-      line-height: 18px;
+    @include tablet {
+      flex-direction: column;
+    }
+    hr {
+      display: none;
+      @include tablet {
+        display: block;
+        width: 100%;
+        border: 1px solid var(--gray80);
+      }
     }
   }
 }

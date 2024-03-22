@@ -1,4 +1,4 @@
-import { InputInterface } from '../Interfaces';
+import { InputInterface } from '../ComponentInterfaces';
 
 import './input.scss';
 

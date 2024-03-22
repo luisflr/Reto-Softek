@@ -1,3 +1,5 @@
+@import '../../scss/variables/mixins';
+
 .header {
   background-color: transparent;
   position: absolute;
@@ -21,6 +23,11 @@
       display: flex;
       align-items: center;
       gap: 15px;
+      &__underline {
+        @include tablet {
+          display: none;
+        }
+      }
       &__contact {
         display: flex;
         align-items: center;

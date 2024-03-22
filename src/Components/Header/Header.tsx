@@ -13,7 +13,7 @@ function Header() {
           <LogoIcon wrapperClassName='logo-icon'/>
         </div>
         <div className='text-header'>
-          <UnderlineButton textButton='¡Compra por este medio!'/>
+          <UnderlineButton wrapperClassName='text-header__underline' textButton='¡Compra por este medio!'/>
           <a className='text-header__contact'>
             <PhoneIcon wrapperClassName='phone-icon' />
             <span className='phone-number'>
