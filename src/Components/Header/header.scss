@@ -20,22 +20,7 @@
     .text-header {
       display: flex;
       align-items: center;
-      gap: 23px;
-      &__button {
-        background-color: transparent;
-        border: none;
-        font-family: var(--brsonoma-medium);
-        font-size: 12px;
-        line-height: 16px;
-      }
-      &__button:hover {
-        text-decoration-line: underline;
-        cursor: pointer;
-        transition-property: transform;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 500ms;
-      }
-
+      gap: 15px;
       &__contact {
         display: flex;
         align-items: center;

@@ -1,0 +1,17 @@
+.checkbox-login {
+  display: flex;
+  align-items: center;
+  font-family: var(--brsonoma-regular);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  gap: 12px;
+  input {
+    accent-color: var(--gray0);
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border-radius: 8px;
+  }
+}

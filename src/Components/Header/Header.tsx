@@ -3,6 +3,7 @@ import PhoneIcon from '../../assets/icons/PhoneIcon'
 
 import './header.scss'
 import LogoIcon from '../../assets/icons/LogoIcon'
+import UnderlineButton from '../UnderlineButton/UnderlineButton'
 
 function Header() {
   return (
@@ -12,7 +13,7 @@ function Header() {
           <LogoIcon wrapperClassName='logo-icon'/>
         </div>
         <div className='text-header'>
-          <button className='text-header__button'>¡Compra por este medio!</button>
+          <UnderlineButton textButton='¡Compra por este medio!'/>
           <a className='text-header__contact'>
             <PhoneIcon wrapperClassName='phone-icon' />
             <span className='phone-number'>
