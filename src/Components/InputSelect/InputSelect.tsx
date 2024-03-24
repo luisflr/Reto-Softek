@@ -1,4 +1,4 @@
-import { InputSelectInterface } from "../ComponentInterfaces"
+import { InputSelectInterface } from "../../Interfaces" 
 
 import ArrowDown from "../../assets/icons/ArrowDown"
 
@@ -12,8 +12,8 @@ function InputSelect({
     <div className={`${wrapperClassName} input-select`}>
       <div className="input-select__select">
         <select>
-          {options.map( option =>
-            <option value={option}>{option}</option>)
+          {options.map( (option, index) =>
+            <option key={`select-${index}`} value={option}>{option}</option>)
           }
         </select>
         <ArrowDown wrapperClassName="arrow-select"/>

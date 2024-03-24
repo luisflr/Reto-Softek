@@ -1,11 +1,23 @@
-import { ButtonInterface } from "../ComponentInterfaces"
+import { ButtonInterface } from "../../Interfaces" 
+import Loader from "../Loader/Loader"
 
 import "./button.scss"
-const Button = ({textButton, type, wrapperClassName= '' }: ButtonInterface) => {
+const Button = ({
+  textButton, 
+  type, 
+  wrapperClassName= '', 
+  action,
+  loading
+}: ButtonInterface) => {
   return (
     <button
+      type="submit"
+      onClick={action}
       className={`${wrapperClassName} form-button ${type}`}>
-        {textButton}
+        {loading 
+          ? <Loader/>
+          : <p>{textButton}</p>
+        }
     </button>
   )
 }
