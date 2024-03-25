@@ -1,7 +1,8 @@
 
+import { ModalInterface } from '../../Interfaces';
 import './modal.scss';
 
-function Modal({ isOpen, title, description, closeModal }: { isOpen: boolean, title?: string, description?: string, closeModal: () => void}) {
+function Modal({ isOpen, title, description, closeModal }: ModalInterface) {
 
   return (
     <div className={`modal-overlay ${isOpen ? 'open' : ''}`}>

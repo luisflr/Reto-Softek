@@ -6,21 +6,21 @@ import { useEffect, useState } from 'react';
 import { getPlans } from '../../../Services/PlanServices';
 import { DataOfPlansInterface, PlansInterface } from '../../../Interfaces';
 import { PlansInitialState } from '../utils/constants';
+import { updatePlan } from '../../../redux/planSlice';
 
 const usePlans = () => {
   const [checked, setChecked] = useState<number>(0)
   const [isLoading, setIsLoading] = useState(false)
   const [plans, setPlans] = useState<PlansInterface[]>(PlansInitialState)
-  const [stepChecked, setStepChecked] = useState(0)
 
   const user = useAppSelector(state => state.user)
+  
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
 
   const handleBack = () => {
     localStorage.removeItem('user')
     if (user.name.length > 0) dispatch(authUser(INITIAL_STATE))
-
     navigate('/')
   }
 
@@ -36,10 +36,16 @@ const usePlans = () => {
 
   }
 
-  const handleSelectPlan = () => {
-    console.log('entro')
-    setStepChecked(1)
+  const handleSelectPlan = (plan: PlansInterface) => {
+    const newPrice: number = (plan.price * 5) / 100
+    const discounted: number = plan.price - Number(newPrice.toFixed(2))
+    dispatch(updatePlan({ 
+      priceOfPlan: checked === 0 ? plan.price : discounted, 
+      selectedPlan: plan.name
+    }))
+    navigate('/summary')
   }
+
   useEffect(() => {
     if (checked > 0) hadleCheckPlan()
   },[checked])
@@ -49,7 +55,6 @@ const usePlans = () => {
     checked,
     plans,
     isLoading,
-    stepChecked,
     /* State Functions */
     setChecked,
     /* Functions */

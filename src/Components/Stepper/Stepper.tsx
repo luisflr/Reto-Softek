@@ -1,6 +1,7 @@
+import { StepperInterface } from '../../Interfaces'
 import './stepper.scss'
 
-const Stepper = ({ wrapperClassName= '', steps, stepChecked}: {wrapperClassName?: string, steps: string[], stepChecked: number}) => {
+const Stepper = ({ wrapperClassName= '', steps, stepChecked}: StepperInterface) => {
   return (
     <div className={`${wrapperClassName} plans-stepper`}>
         {steps.map((setp, index) => 

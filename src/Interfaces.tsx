@@ -60,6 +60,27 @@ export interface CardInterface extends CommonInterface{
   onClickButtonCard: () => void
 }
 
+export interface ModalInterface extends CommonInterface{
+  isOpen: boolean
+  title?: string
+  description?: string
+  closeModal: () => void
+}
+
+export interface StepperInterface extends CommonInterface{
+  steps: string[]
+  stepChecked: number
+}
+
+export interface ErrorMessageInterface extends CommonInterface{
+  textMessage: string
+}
+
+export interface CardInfoInterface extends CommonInterface{
+  selectedPlan: string
+  priceOfPlan: number
+}
+
 /**
  * Page Interfaces
  */
@@ -79,6 +100,10 @@ export interface UserInterface {
   birthDay: string
 }
 
+export interface PageContextInterface{
+  selectedPlan: string
+  priceOfPlan: number
+}
 /**
  * Route Interfaces
  */

@@ -4,7 +4,6 @@ import { authUser } from "../redux/userSlice";
 import { useAppDispatch, useAppSelector } from './useRedux';
 
 const useApp = () => {
-  
   const user = useAppSelector(state => state.user)
   const dispatch = useAppDispatch()
 
@@ -19,7 +18,9 @@ const useApp = () => {
   return {
     /**States */
     user,
-    
+
+    /**State Functions */
+    /**Functions */
   }
 }
 

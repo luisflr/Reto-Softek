@@ -1,6 +1,7 @@
+import { ErrorMessageInterface } from '../../Interfaces'
 import './error-message.scss'
 
-const ErrorMessage = ({ wrapperClassName='', textMessage}: { wrapperClassName?: string, textMessage: string}) => {
+const ErrorMessage = ({ wrapperClassName='', textMessage}: ErrorMessageInterface) => {
   return (
     <span className={`${wrapperClassName} error-message`}>{textMessage}</span>
   )

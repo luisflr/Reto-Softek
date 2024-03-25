@@ -19,13 +19,13 @@ import { Steps } from './utils/constants';
 const PlansPage = () => {
 
   const {
-    checked, plans, isLoading, stepChecked,
+    checked, plans, isLoading,
     setChecked,
     handleBack, handleSelectPlan } = usePlans();
 
   return (
     <section className='plans-section'>
-      <Stepper steps={Steps} stepChecked={stepChecked}/>
+      <Stepper steps={Steps} stepChecked={0}/>
       <div className='container'>
         <div className='content'>
           <div className='button-container'>
@@ -66,7 +66,7 @@ const PlansPage = () => {
                     price={plan.price}
                     descriptionList={plan.description}
                     textButton='Seleccionar Plan'
-                    onClickButtonCard={handleSelectPlan}
+                    onClickButtonCard={() => handleSelectPlan(plan)}
                     showDiscount={checked === 2}
                   />
                 </React.Fragment>

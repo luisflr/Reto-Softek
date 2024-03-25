@@ -16,7 +16,7 @@ const Card = ({
 }: CardInterface) => {
 
   const newPrice: number = (price * 5) / 100
-  const discounted: number = Number(newPrice.toFixed(2))
+  const discounted: number = price - Number(newPrice.toFixed(2))
 
   return (
     <div className='card-plan'>
@@ -29,8 +29,8 @@ const Card = ({
             <p>{title}</p>
             <div className='card-description'>
               <p className='card-description__coste'>{coste}</p>
-              {showDiscount ? <p className='card-description__discount'>${showDiscount ? discounted : price} antes </p> : <></>}
-              <p className='card-description__price'>${price} al mes</p>
+              {showDiscount ? <p className='card-description__discount'>${ price} antes </p> : <></>}
+              <p className='card-description__price'>${showDiscount ? discounted : price} al mes</p>
             </div>
           </div>
           <div className='card-title__icon'>
