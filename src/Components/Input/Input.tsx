@@ -9,7 +9,7 @@ function Input({ wrapperClassName='', placeholder, inputValue, handleInput }: In
         className='input-form'
         type="text"
         placeholder={placeholder}
-        maxLength={9}
+        maxLength={10}
         value={inputValue}
         onChange={handleInput}
       />

@@ -1,3 +1,4 @@
+import { CardInterface } from "../../Interfaces"
 import Button from "../Button/Button"
 
 import './card.scss'
@@ -6,20 +7,17 @@ const Card = ({
   recommended,
   title,
   iconCard,
+  showDiscount,
   coste,
   price,
   descriptionList,
-  textButton
-}: {
-  recommended?: boolean,
-  title: string,
-  iconCard: string,
-  coste: string,
-  price: string,
-  descriptionList: string[],
-  textButton: string,
-  onClickButton: () => void
-}) => {
+  textButton,
+  onClickButtonCard
+}: CardInterface) => {
+
+  const newPrice: number = (price * 5) / 100
+  const discounted: number = Number(newPrice.toFixed(2))
+
   return (
     <div className='card-plan'>
       {recommended && 
@@ -31,6 +29,7 @@ const Card = ({
             <p>{title}</p>
             <div className='card-description'>
               <p className='card-description__coste'>{coste}</p>
+              {showDiscount ? <p className='card-description__discount'>${showDiscount ? discounted : price} antes </p> : <></>}
               <p className='card-description__price'>${price} al mes</p>
             </div>
           </div>
@@ -40,13 +39,19 @@ const Card = ({
         </div>
         <div className='line-separator'></div>
         <ul className='card-list'>
-          {descriptionList.map(item => 
-            <li className='card-list__item'>
+          {descriptionList.map((item, index) => 
+            <li key={`description-${index}`} className='card-list__item'>
               {item}
-            </li>)
+            </li>
+            )
           }
         </ul>
-        <Button wrapperClassName='card-button' loading={false} type='secondary' textButton={textButton}/>
+        <Button
+          wrapperClassName='card-button'
+          loading={false} type='secondary'
+          textButton={textButton}
+          action={onClickButtonCard}
+        />
       </div>
     </div>
   )

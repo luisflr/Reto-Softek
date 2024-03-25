@@ -16,6 +16,15 @@ const useLogin = () => {
   const [error, setError] = useState(false)
   const [checkedBox, setCheckedBox] = useState<CheckboxOptionsInterface[]>(checkBoxOptions)
   const navigate = useNavigate()
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => {
+    setIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
   const dispatch = useAppDispatch()
 
@@ -23,8 +32,7 @@ const useLogin = () => {
 
   const handlePhoneValue = (e: ChangeEvent<HTMLInputElement>) => setPhoneNumber(e.target.value)
 
-  const handleSearch = (e: ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleSearch = () => {
     setSearch(true)
   }
 
@@ -40,7 +48,7 @@ const useLogin = () => {
       if (!_checkedBox.isChecked) return false
       return true
     })
-    if (documentValue === '30216147' && phoneNumber === '5130216147' && isValid) {
+    if (documentValue === '30216147' && phoneNumber === '5130216147' && isValid[0] && isValid[1]) {
       try {
         const data = await getUser()
         dispatch(authUser(data))
@@ -71,13 +79,16 @@ const useLogin = () => {
     phoneNumber,
     error,
     checkedBox,
+    isOpen,
     /* State Functions */
     setCheckedBox,
     /* Functions */
     handleSearch,
     handleDocumentValue,
     handlePhoneValue,
-    handleChecked
+    handleChecked,
+    openModal,
+    closeModal
   }
 }
 

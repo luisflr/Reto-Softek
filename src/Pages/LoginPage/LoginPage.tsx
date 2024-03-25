@@ -4,6 +4,7 @@ import Checkbox from '../../Components/CheckBox/Checkbox';
 import UnderlineButton from '../../Components/UnderlineButton/UnderlineButton';
 import Button from '../../Components/Button/Button';
 import Footer from '../../Components/Footer/Footer';
+import ErrorMessage from '../../Components/ErrorMessage/ErrorMessage';
 
 import useLogin from './hooks/useLogin';
 
@@ -17,14 +18,13 @@ import familyImage from '../../assets/images/family.png';
 import './login-page.scss'
 import { useAppSelector } from '../../hooks/useRedux';
 import { Navigate } from 'react-router-dom';
-import ErrorMessage from '../../Components/ErrorMessage/ErrorMessage';
-
-
+import Modal from '../../Components/Modal/Modal';
 
 function Login() {
   const {
-    isLoading, documentValue, phoneNumber, error, checkedBox,
-    handleSearch, handleDocumentValue, handlePhoneValue, handleChecked } = useLogin();
+    isLoading, documentValue, phoneNumber, error, checkedBox,isOpen,
+    handleSearch, handleDocumentValue, handlePhoneValue, 
+    handleChecked, openModal, closeModal } = useLogin();
   const user = useAppSelector(state => state.user)
 
   return (
@@ -54,7 +54,7 @@ function Login() {
               
               <h2 className='description-seguro'>Tú eliges cuánto pagar. Ingresa tus datos, cotiza y recibe nuestra asesoría. 100% online</h2>
     
-              <form className='form-login' onSubmit={handleSearch}>
+              <div className='form-login' >
                 <InputSelect  
                   placeholder='Nro. de documento'
                   options={options}
@@ -83,14 +83,16 @@ function Login() {
                 <UnderlineButton
                   wrapperClassName='underline-button-login'
                   textButton='Aplican Términos y condiciones'
+                  onPress={openModal}
                 />
                 <Button
+                  action={handleSearch}
                   wrapperClassName='button-login' 
                   textButton='Cotiza aqui' 
                   type='primary'
                   loading={isLoading}
                 />
-              </form>
+              </div>
     
             </div>
           </div>
@@ -100,6 +102,12 @@ function Login() {
           <img src={blurGreenMobile} className='green-blur-tablet' alt='blur green'/>
           <img src={blurPurpleMobile} className='purple-blur-tablet' alt='blur green'/>
         </section>
+        {isOpen && <Modal
+          title='Aplican Términos y Condiciones'
+          isOpen={isOpen}
+          closeModal={closeModal}
+          description="Encontrarás información importante sobre tus derechos y obligaciones al utilizar nuestros servicios. Cubren aspectos clave como la privacidad, la seguridad y la conducta esperada. Te recomendamos encarecidamente familiarizarte con estos términos para estar bien informado. \n Si tienes preguntas o inquietudes sobre los 'Términos y Condiciones', no dudes en ponerte en contacto con nuestro equipo de soporte. Estamos aquí para ayudarte y garantizar que tu experiencia sea transparente y segura."
+        />}
         <Footer />
       </>
     }

@@ -1,3 +1,5 @@
+@import '../../scss/variables/mixins';
+
 .radio-option {
   cursor: pointer;
   align-items: center;
@@ -8,6 +10,9 @@
   padding: 16px 24px 40px 24px;
   background: var(--white);
   text-align: left;
+  @include tablet {
+    width: 100%;
+  }
   .radio-check {
     width: 100%;
     display: flex;

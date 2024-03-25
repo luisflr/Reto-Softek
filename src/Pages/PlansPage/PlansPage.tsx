@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React from "react"
 
 import Card from '../../Components/Card/Card';
 import BackButton from '../../Components/BackButton/BackButton'
@@ -12,39 +12,24 @@ import iconHouse from '../../assets/images/IconHouse.png';
 import iconHospital from '../../assets/images/IconHospital.png';
 
 import './plans-page.scss'
+import Loader from '../../Components/Loader/Loader';
+import Stepper from '../../Components/Stepper/Stepper';
+import { Steps } from './utils/constants';
 
 const PlansPage = () => {
 
-  const { handleBack } = usePlans();
+  const {
+    checked, plans, isLoading, stepChecked,
+    setChecked,
+    handleBack, handleSelectPlan } = usePlans();
 
-  const [checked, setChecked] = useState(1)
-
-  // const steps = ['planes y coberturas', 'resumen']
   return (
     <section className='plans-section'>
-      <div className='plans-stepper'>
-        <div className='plans-stepper__content'>
-          <div className='stepper-checked'>
-            1
-          </div>
-          <p className='stepper-text'>
-            Planes y coberturas 
-          </p>
-        </div>
-          - - -
-        <div className='plans-stepper__content'>
-          <div className='stepper-non-checked'>
-            2
-          </div>
-          <p className='stepper-text-non-checked'>
-            Resumen
-          </p>
-        </div>
-      </div>
+      <Stepper steps={Steps} stepChecked={stepChecked}/>
       <div className='container'>
         <div className='content'>
           <div className='button-container'>
-            <BackButton textButton='Volver' back={()=> handleBack()}/>
+            <BackButton textButton='Volver' onPress={()=> handleBack()}/>
           </div>
           <div className='content__title'>
             <h1 className='title-name'>Rocío ¿Para quién deseas cotizar?</h1>
@@ -59,52 +44,37 @@ const PlansPage = () => {
               description='Cotiza tu seguro de salud y agrega familiares si así lo deseas.'
             />
             <RadioButton
-              checked={checked == 2}
+              checked={checked === 2}
               onSetChecked={() => setChecked(2)}
               icon={iconAddUser}
               title='Para alguien más'
               description='Realiza una cotización para uno de tus familiares o cualquier persona.'
             />
           </div>
-          <div className='cards-plan-container'>
-            <Card
-              title='Plan en Casa'
-              iconCard={iconHouse}
-              coste='COSTO DEL PLAN'
-              price='39'
-              descriptionList={[
-                'Médico general a domicilio por S/20 y medicinas cubiertas al 100%.',
-                'Videoconsulta y orientación telefónica al 100% en medicina general + pediatría.',
-                'Indemnización de S/300 en caso de hospitalización por más de un día.']}
-              textButton='Seleccionar Plan'
-              onClickButton={()=>{}}
-            />
-            <Card
-              recommended={true}
-              title='Plan en Casa y Clínica'
-              iconCard={iconHospital}
-              coste='COSTO DEL PLAN'
-              price='99'
-              descriptionList={[
-                'Consultas en clínica para cualquier especialidad.',
-                'Medicinas y exámenes derivados cubiertos al 80%.',
-                'Atención médica en más de 200 clínicas del país.']}
-              textButton='Seleccionar Plan'
-              onClickButton={()=>{}}
-            />
-            <Card
-              title='Plan en Casa + Chequeo'
-              iconCard={iconHouse}
-              coste='COSTO DEL PLAN'
-              price='49'
-              descriptionList={[
-                'Un Chequeo preventivo general de manera presencial o virtual.',
-                'Acceso a Vacunas en el Programa del MINSA en centros privados.',
-                'Incluye todos los beneficios del Plan en Casa.']}
-              textButton='Seleccionar Plan'
-              onClickButton={()=>{}}
-            />
+          {plans.length > 1
+            ? 
+            <div className='cards-plan-container'>
+              {isLoading 
+              ? <Loader wrapperClassName='plans-loader'/>
+              : plans.map((plan, index) =>
+                <React.Fragment key={`card-${index}`}>
+                  <Card
+                    recommended={index === 1}
+                    title={plan.name}
+                    iconCard={index % 2 === 0 ? iconHouse : iconHospital}
+                    coste='COSTO DEL PLAN'
+                    price={plan.price}
+                    descriptionList={plan.description}
+                    textButton='Seleccionar Plan'
+                    onClickButtonCard={handleSelectPlan}
+                    showDiscount={checked === 2}
+                  />
+                </React.Fragment>
+               )}
           </div>
+          : <></>
+          }
+          
         </div>
       </div>
     </section>

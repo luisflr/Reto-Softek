@@ -30,7 +30,7 @@ export interface InputSelectInterface extends CommonInterface{
 
 export interface SpecialButtonInterface extends CommonInterface{
   textButton: string
-  back?: () => void
+  onPress?: () => void
 }
 
 export interface ButtonInterface extends CommonInterface{
@@ -46,6 +46,18 @@ export interface RadioButtonInterface extends CommonInterface{
   icon: string
   title: string
   description: string
+}
+
+export interface CardInterface extends CommonInterface{
+  recommended?: boolean,
+  showDiscount: boolean,
+  title: string,
+  iconCard: string,
+  coste: string,
+  price: number,
+  descriptionList: string[],
+  textButton: string,
+  onClickButtonCard: () => void
 }
 
 /**
@@ -84,4 +96,16 @@ export interface ProtectedRouteInterface {
 export interface CheckboxOptionsInterface {
   isChecked: boolean
   text: string
+}
+
+ /** Hooks Interfaces */
+export interface PlansInterface {
+  name: string
+  price: number
+  description: string []
+  age: number
+}
+
+export interface DataOfPlansInterface {
+  list: PlansInterface[]
 }

@@ -14,7 +14,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Header />
+      <Header/>
       <Routes>
         <Route index element={<Login />}/>
         <Route element={<ProtectedRoutes isAuth={user.name.length > 0} redirectTo='/'/>}>
