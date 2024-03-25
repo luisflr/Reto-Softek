@@ -30,4 +30,8 @@ Consideraremos tu avance y complementaremos con preguntas técnicas sobre los pu
 
 Valoramos más los puntos remarcados
 
+### Para acceder al sistema se puede hacer con las siguientes credenciales
+DNI: 30216147
+CELULAR: 5130216147
+
 ![Frontend-Challenge](https://github.com/luisflr/Reto-Softek/assets/37960514/d9f4d103-aeaa-4213-8782-2f234b331757)
