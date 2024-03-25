@@ -1,6 +1,7 @@
 
-import Login from "./Login/Login"
+import LoginPage from "./LoginPage/LoginPage"
+import PlansPage from "./PlansPage/PlansPage"
 
-export const LoginPage = () => <Login />
-export const PlansPage = () => <div> Planes Page (Protected)</div>
-export const SummaryPage = () => <div> Summary Page (Protected)</div>
+export const Login = () => <LoginPage />
+export const Plans = () => <PlansPage />
+export const Summary = () => <div> Summary Page (Protected)</div>

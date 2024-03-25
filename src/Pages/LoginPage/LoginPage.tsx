@@ -15,12 +15,12 @@ import blurPurpleMobile from '../../assets/images/blur-asset-purple-mobile.png';
 import blurGreenMobile from '../../assets/images/blur-asset-green-mobile.png';
 import familyImage from '../../assets/images/family.png';
 
-import './login.scss'
+import './login-page.scss'
 
 
 
 function Login() {
-  const { user, isLoading, handleSearch } = useLogin();
+  const { isLoading, handleSearch } = useLogin();
 
   return (
     <>

@@ -16,7 +16,7 @@ const Button = ({
       className={`${wrapperClassName} form-button ${type}`}>
         {loading 
           ? <Loader/>
-          : <p>{textButton}</p>
+          : textButton
         }
     </button>
   )

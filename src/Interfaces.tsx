@@ -21,7 +21,7 @@ export interface InputSelectInterface extends CommonInterface{
   options: string[]
 }
 
-export interface UnerlineButtonInterface extends CommonInterface{
+export interface SpecialButtonInterface extends CommonInterface{
   textButton: string
 }
 
@@ -30,6 +30,14 @@ export interface ButtonInterface extends CommonInterface{
   textButton?: string
   action?: () => void
   loading: boolean
+}
+
+export interface RadioButtonInterface extends CommonInterface{
+  checked: boolean
+  onSetChecked: () => void
+  icon: string
+  title: string
+  description: string
 }
 
 /**

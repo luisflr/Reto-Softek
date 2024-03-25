@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Header from './Components/Header/Header';
-import { LoginPage, PlansPage, SummaryPage } from './Pages/index';
+import { Login, Plans, Summary } from './Pages/index';
 
 import { ProtectedRoutes } from './Routes/ProtectedRoutes';
 
@@ -18,11 +18,11 @@ function App() {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route index element={<LoginPage />}/>
-        <Route element={<ProtectedRoutes isAuth={!!user} redirectTo='/plans'/>}>
+        <Route index element={<Login />}/>
+        <Route element={<ProtectedRoutes isAuth={!!user} redirectTo='/'/>}>
           {/* <Route path='/' element={<LoginPage />}/> */}
-          <Route path='/plans' element={<PlansPage />}/>
-          <Route path='/summary' element={<SummaryPage />}/>
+          <Route path='/plans' element={<Plans />}/>
+          <Route path='/summary' element={<Summary />}/>
         </Route>
         
       </Routes>
