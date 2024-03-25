@@ -3,9 +3,9 @@ import ArrowLeft from "../../assets/icons/ArrowLeft"
 
 import './back-button.scss'
 
-const BackButton = ({ wrapperClassName='', textButton}: SpecialButtonInterface) => {
+const BackButton = ({ wrapperClassName='', textButton, back }: SpecialButtonInterface) => {
   return (
-    <button className={`back-button ${wrapperClassName}`}>
+    <button onClick={back} className={`back-button ${wrapperClassName}`}>
         <div className='icon-back-button'>
           <ArrowLeft wrapperClassName='arrow-left'/>
         </div>

@@ -1,16 +1,21 @@
 import { useState } from 'react'
 
+import Card from '../../Components/Card/Card';
 import BackButton from '../../Components/BackButton/BackButton'
 import RadioButton from '../../Components/RadioButton/RadioButton'
+
+import usePlans from './hooks/usePlans';
+
 import iconUser from '../../assets/images/IconUser.png';
 import iconAddUser from '../../assets/images/IconAddUser.png';
 import iconHouse from '../../assets/images/IconHouse.png';
 import iconHospital from '../../assets/images/IconHospital.png';
 
 import './plans-page.scss'
-import Card from '../../Components/Card/Card';
 
 const PlansPage = () => {
+
+  const { handleBack } = usePlans();
 
   const [checked, setChecked] = useState(1)
 
@@ -39,7 +44,7 @@ const PlansPage = () => {
       <div className='container'>
         <div className='content'>
           <div className='button-container'>
-            <BackButton textButton='Volver'/>
+            <BackButton textButton='Volver' back={()=> handleBack()}/>
           </div>
           <div className='content__title'>
             <h1 className='title-name'>Rocío ¿Para quién deseas cotizar?</h1>

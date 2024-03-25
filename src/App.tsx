@@ -6,21 +6,18 @@ import { Login, Plans, Summary } from './Pages/index';
 import { ProtectedRoutes } from './Routes/ProtectedRoutes';
 
 import './app.scss';
-import useApp from './useApp';
+import useApp from './hooks/useApp';
 
 function App() {
 
   const { user } = useApp();
-
-  console.log(user)
 
   return (
     <BrowserRouter>
       <Header />
       <Routes>
         <Route index element={<Login />}/>
-        <Route element={<ProtectedRoutes isAuth={!!user} redirectTo='/'/>}>
-          {/* <Route path='/' element={<LoginPage />}/> */}
+        <Route element={<ProtectedRoutes isAuth={user.name.length > 0} redirectTo='/'/>}>
           <Route path='/plans' element={<Plans />}/>
           <Route path='/summary' element={<Summary />}/>
         </Route>

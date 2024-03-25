@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ChangeEvent, ReactNode } from 'react'
 /**
  * Component Interfaces
  */
@@ -9,20 +9,28 @@ interface CommonInterface {
 type typeColor = 'primary' | 'secondary' 
 
 export interface CheckBoxInterface extends CommonInterface{
-  labelText: string;
+  labelText: string
+  isChecked: boolean
+  error: boolean
+  handleCheckedOption: () => void
 }
 
 export interface InputInterface extends CommonInterface{
   placeholder: string
+  inputValue: string
+  handleInput: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 export interface InputSelectInterface extends CommonInterface{
   placeholder: string
   options: string[]
+  inputValue: string
+  handleInput: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 export interface SpecialButtonInterface extends CommonInterface{
   textButton: string
+  back?: () => void
 }
 
 export interface ButtonInterface extends CommonInterface{
@@ -67,4 +75,13 @@ export interface ProtectedRouteInterface {
   children?: ReactNode, 
   isAuth: boolean, 
   redirectTo?: string
+}
+
+/**
+ * Constant Interfaces
+ */
+
+export interface CheckboxOptionsInterface {
+  isChecked: boolean
+  text: string
 }
